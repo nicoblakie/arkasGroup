@@ -1,0 +1,22 @@
+Cruge Change Log
+================
+
+- Enh						Christian Salazar	ampliación del API de CrugeUserManager
+- Enh						Christian Salazar	incorporacion de CrugeConnector para agregar remote login.
+- Enh						Christian Salazar	agregando funciones CrugeUserManager + fix comments
+- Task #07		eacd6345	Ricardo Obregon		Sacar la encriptacion Md5 hacia un metodo externo.
+
+(antes del task 07 no habian contribuciones ni anotaciones de CHANGELOG)
+
+
+NORMAS DEL CHANGELOG:
+---------------------
+
+1. Se debe crear un TASK, ENH o BUG en el gestor de issues con el asunto a ser resuelto.
+2. Tras haberse aprobado el cambio deberá tener su soporte en README.
+3. Igualmente, crear la entrada en CHANGELOG como sigue:
+
+	Columna 1. 	usar uno de: TASK/ENH,BUG seguido del numero de secuencia del issue.
+	Columna 2.	numero de commit.
+	Columna 3.	Nombre apellido (o correo) del autor.
+	Columna 4.	Descripcion clara y corta de aquello que se resolvió.
