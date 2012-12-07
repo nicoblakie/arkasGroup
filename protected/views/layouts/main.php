@@ -24,7 +24,8 @@
         <div class="container" id="page">
             <div id="header">
                 <?php
-                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logo.gif', "imagen", array("position: fixed; top: 0px; right: 0px", "width" => 450));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/Arkas.gif', "imagen", array("height"=> 100 ));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.gif', "imagen", array("style"=> "position : absolute; right : 0px", "height"=> 100));
                 ?>       
             </div><!-- header -->
 

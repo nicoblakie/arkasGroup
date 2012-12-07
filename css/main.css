@@ -19,7 +19,8 @@ body
 {
     margin: 0;
     padding: 0;
-    border-top: 3px solid #C9E0ED;
+    border-top: 3px;
+    background-image: url("../images/Head.jpg");
 }
 
 #content
