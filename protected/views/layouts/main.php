@@ -47,15 +47,6 @@
                     <li>
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
                     </li>
-                    <li>
-                        <?php
-                        if (Yii::app()->user->isGuest) {
-                            echo CHtml::link("Iniciar Sesion", Yii::app()->user->ui->loginUrl);
-                        } else {
-                            echo CHtml::link("Cerrar Sesion (" . Yii::app()->user->name . ")", Yii::app()->user->ui->logoutUrl);
-                        }
-                        ?>
-                    </li>
                     <!--<li>
                         <form method="post" action="">
                             <fieldset>
@@ -87,7 +78,7 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <div style="position: absolute; margin-top:40px; top:150px; right: 300px; left: 20px; background-color: white">
+                                                    <div style="position: absolute; top:190px; right: 300px; left: 20px; background-color: white">
                                                         <?php echo $content; ?>
                                                     </div>
                                                 </td>
@@ -126,32 +117,35 @@
                                             <tr>
                                                 <td width="20%">
 
-                                                    <div class="portlet" id="yw2" style="margin-top: 30px; top: 150px; position: fixed">
+                                                    <div class="portlet" id="yw2" style="top: 179px; position: fixed">
                                                         <table border="2">
                                                             <tr><td colspan="2">
 
                                                                     <div class="portlet-content">
                                                                         <ul class="operations" id="yw3">
                                                                             <div class="portlet-decoration">
-                                                                                <div class="portlet-title">Administracion</div>
+                                                                                <div class="portlet-title">Secciones Y Post's</div>
                                                                             </div>
-                                                                            <li><a href="index.php?r=secciones"> Secciones</a></li>
-
-                                                                            <li><a href="index.php?r=posts"> - - - Posts </a></li>
-
+                                                                            <li><a href="index.php?r=secciones">Todas las Secciones</a></li>
                                                                             <li><a href="index.php?r=secciones/view&id=1">  Noticias </a></li>
                                                                             <li><a href="index.php?r=secciones/view&id=2">  Horoscopos </a></li>
                                                                             <li><a href="index.php?r=secciones/view&id=3">  Recetas </a></li>
-                                                                            <li><a href="index.php?r=encuestas">  Encuestas </a></li>
-                                                                            <li><a href="index.php?r=publicidades">  Publicidades </a></li>
-                                                                            <br />
-                                                                            <li></li>
-                                                                            <li><a href="index.php?r=cruge/ui/usermanagementupdate&id=1"> Cambiar Contraseña </a></li>
+                                                                            <li><a href="index.php?r=posts">Todos los Post's</a></li>
+                                                                            <div class="portlet-decoration">
+                                                                                <div class="portlet-title">Publicidades y Encuestas</div>
+                                                                            </div>
+                                                                            <li><a href="index.php?r=encuestas">Encuestas </a></li>
+                                                                            <li><a href="index.php?r=publicidades">Publicidades </a></li>
+                                                                            <div class="portlet-decoration">
+                                                                                <div class="portlet-title">Opciones Adicionales</div>
+                                                                            </div>
+                                                                            <li><a href="index.php?r=cruge/ui/usermanagementupdate&id=1">Cambiar Contraseña </a></li>
                                                                             <div>
                                                                                 <div id="sidebar">
                                                                         <?php
                                                                         $this->beginWidget('zii.widgets.CPortlet', array(
-                                                                            'title' => 'Operations',
+                                                                            'title' => 'Funciones Administrativas',
+                                                                            'htmlOptions' => array('class' => 'portlet-title'),
                                                                         ));
                                                                         $this->widget('zii.widgets.CMenu', array(
                                                                             'items' => $this->menu,
@@ -174,7 +168,7 @@
                         </table>
                     </td>
                     <td width="10%" >
-                        <div style="position: absolute; top: 150px;">
+                        <div style="position: absolute; top: 182px;">
                             <?php
                                                                         for ($i = 0; $i < 5; $i++) {
                                                                             $numero_aleatorio = rand(1, 500);
@@ -200,6 +194,14 @@
                                                             </table>
                                                             <div class="clear"></div>
                                                             <div id="footer">
+                                                                                        <?php
+                        if (Yii::app()->user->isGuest) {
+                            echo CHtml::link("Iniciar Sesion", Yii::app()->user->ui->loginUrl);
+                        } else {
+                            echo CHtml::link("Cerrar Sesion (" . Yii::app()->user->name . ")", Yii::app()->user->ui->logoutUrl);
+                        }
+                        ?>
+                        <br/><br/>
                                                                 Copyright &copy; <?php echo date('Y'); ?><br/>
                 <a href="http://www.dorean.com.ar/">Dorean Soluciones Informaticas</a><br/>
                 Todos los derechos reservados.<br/>
