@@ -25,7 +25,7 @@
             <div id="header">
                 <?php
                 echo CHtml::image(Yii::app()->request->baseUrl . '/images/arkasnombre.PNG', "imagen", array("height"=> 100 ));
-                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.PNG', "imagen", array("style"=> "position : absolute; right : 0px", "height"=> 100));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.PNG', "imagen", array("style"=> "position : absolute; right : 110px", "height"=> 100));
                 ?>       
             </div><!-- header -->
 
@@ -99,7 +99,7 @@
                                             <div style="position: static; margin-top: 5px;">
 
                             <?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/' . $data->url, $data->contenido, array("width" => 260, "height" => 260)); ?>
-                                        <hr/>
+                                        <br/>
                                         </div>
                         <?php
                                         }
@@ -116,10 +116,10 @@
                                         <tr>
                                             <tr>
                                                 <td width="20%">
-
                                                     <div class="portlet" id="yw2" style="top: 179px; position: fixed">
                                                         <table border="2">
-                                                            <tr><td colspan="2">
+                                                            <tr>
+                                                                <td colspan="2">
 
                                                                     <div class="portlet-content">
                                                                         <ul class="operations" id="yw3">
@@ -140,25 +140,23 @@
                                                                                 <div class="portlet-title">Opciones Adicionales</div>
                                                                             </div>
                                                                             <li><a href="index.php?r=cruge/ui/usermanagementupdate&id=1">Cambiar Contraseña </a></li>
-                                                                            <div>
-                                                                                <div id="sidebar">
-                                                                        <?php
-                                                                        $this->beginWidget('zii.widgets.CPortlet', array(
-                                                                            'title' => 'Funciones Administrativas',
-                                                                            'htmlOptions' => array('class' => 'portlet-title'),
-                                                                        ));
-                                                                        $this->widget('zii.widgets.CMenu', array(
-                                                                            'items' => $this->menu,
-                                                                            'htmlOptions' => array('class' => 'operations'),
-                                                                        ));
-                                                                        $this->endWidget();
-                                                                        ?>
-                                                                    </div><!-- sidebar -->
-                                                                </div>
-
-                                                            </ul></div>
-
-                                                    </td></tr>
+                                                                            <div id="sidebar">
+                                                                            <?php
+                                                                            $this->beginWidget('zii.widgets.CPortlet', array(
+                                                                                'title' => 'Funciones Administrativas',
+                                                                                'htmlOptions' => array('class' => 'portlet-title'),
+                                                                            ));
+                                                                            $this->widget('zii.widgets.CMenu', array(
+                                                                                'items' => $this->menu,
+                                                                                'htmlOptions' => array('class' => 'operations'),
+                                                                            ));
+                                                                            $this->endWidget();
+                                                                            ?>
+                                                                            </div><!-- sidebar -->
+                                                                         </ul>
+                                                                    </div>
+                                                    </td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </td>
@@ -180,7 +178,7 @@
                             ?>
                                                                                     <div>
                                 <?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/' . $data->url, $data->contenido, array("width" => 100, "height" => 100)); ?>
-                                                                                    <hr />
+                                                                                    <br/>
                                                                                 </div>
                             <?php
                                                                                 }
