@@ -16,9 +16,9 @@ $this->menu = array(
 );
 ?>
 <div>
-    <h1><center>
+    <h2><center>
             <?php echo $model->titulo; ?>
-        </center></h1> 
+        </center></h2> 
     <hr>
     <div class="imagen"><?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/' . $model->imagen, "imagen", array("width" => 500)); ?>
         <p class="imagenp">Publicado el: <?php echo $model->fecha; ?></p></div>

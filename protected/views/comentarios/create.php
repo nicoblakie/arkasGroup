@@ -8,8 +8,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => 'List Comentarios', 'url' => array('index')),
-    array('label' => 'Manage Comentarios', 'url' => array('admin')),
+    array('label' => 'Listar Comentarios', 'url' => array('index')),
+    array('label' => 'Administrar Comentarios', 'url' => array('admin')),
 );
 ?>
 

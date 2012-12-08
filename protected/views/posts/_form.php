@@ -73,9 +73,24 @@
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model, 'contenido'); ?>
-        <?php echo $form->textArea($model, 'contenido', array('size' => 60, 'maxlength' => 5000)); ?>
-<?php echo $form->error($model, 'contenido'); ?>
+        <?php echo $form->error($model, 'contenido'); ?>
+        <?php $form->widget('application.extensions.TheCKEditor.theCKEditorWidget',array(
+            'model'=>$model,                # Data-Model (form model)
+            'attribute'=>'contenido',         # Attribute in the Data-Model
+            'height'=>'400px',
+            'width'=>'98%',
+            'toolbarSet'=>'Basic',          # EXISTING(!) Toolbar (see: ckeditor.js)
+            'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
+                                            # Path to ckeditor.php
+            'ckBasePath'=>Yii::app()->baseUrl.'/ckeditor/',
+                                            # Relative Path to the Editor (from Web-Root)
+            'config' => array('toolbar'=>array(
+             array( 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ),
+             array( 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ),
+             array( 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ),
+             array( 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ),
+             array( 'Styles','Format','Font','FontSize'  ),
+             array( 'TextColor','BGColor'  ),),'resize_enabled' => 'false', 'skin' => 'kama'))); ?>
     </div>
 
     <div class="row">

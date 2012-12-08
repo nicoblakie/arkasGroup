@@ -50,11 +50,6 @@ $this->menu = array(
     <?php } ?>
     <?php
 } else {
-    if ($model->idSeccion == 1)
-        echo "No hay Noticias que Mostrar";
-    if ($model->idSeccion == 2)
-        echo "No hay Horoscopos que Mostrar";
-    if ($model->idSeccion == 3)
-        echo "No hay Recetas que Mostrar";
+    echo "No hay posts que mostrar en esta seccion";
 }
 ?>

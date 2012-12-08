@@ -3,7 +3,6 @@
 
 $this->pageTitle = Yii::app()->name;
 ?>
-<h1>HOLA NICO!</h1>
 <?php if ($noticias) {
     ?>
     <?php foreach ($noticias as $data) {

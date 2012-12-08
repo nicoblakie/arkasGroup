@@ -24,20 +24,24 @@
         <div class="container" id="page">
             <div id="header">
                 <?php
-                echo CHtml::image(Yii::app()->request->baseUrl . '/images/Arkas.gif', "imagen", array("height"=> 100 ));
-                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.gif', "imagen", array("style"=> "position : absolute; right : 0px", "height"=> 100));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/arkasnombre.PNG', "imagen", array("height"=> 100 ));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.PNG', "imagen", array("style"=> "position : absolute; right : 0px", "height"=> 100));
                 ?>       
             </div><!-- header -->
 
-            <div id="mainmenu">
-
-                <ul id="nav" class="dropdown dropdown-horizontal">
-                    <li class="first"><?php echo CHtml::link("Inicio", array('/site/index')); ?></li>
-                    <li class="dir"><?php echo CHtml::link("Secciones", array('/secciones/index')); ?>
+            <div id="cssmenu">
+                <ul>
+                    <li><?php echo CHtml::link("Inicio", array('/site/index')); ?></li>
+                    <li class='has-sub '><?php echo CHtml::link("Secciones", array('/secciones/index')); ?>
                         <ul>
-                            <li><?php echo CHtml::link("Noticias", array('/secciones/view', 'id' => 1)); ?></li>
-                            <li><?php echo CHtml::link("Horoscopo", array('/secciones/view', 'id' => 2)); ?></li>
-                            <li><?php echo CHtml::link("Recetas", array('/secciones/view', 'id' => 3)); ?></li>
+                            <?php
+                                $secciones= Secciones::model()->findAll();
+                                foreach ($secciones as $sec) {
+                            ?>
+                                    <li><?php echo CHtml::link($sec->nombre, array('/secciones/view', 'id' => $sec->idSeccion)); ?></li>
+                                    <?php
+                                }
+                            ?>
                         </ul>
                     </li>
                     <li>
@@ -52,24 +56,24 @@
                         }
                         ?>
                     </li>
-                    <li class="dir last">
+                    <!--<li>
                         <form method="post" action="">
                             <fieldset>
-                                <label for="search">Search:</label>
-                                <input type="text" id="search" class="text" value="Search!" onfocus="if (this.value == 'Search!') this.value = '';" onblur="if (this.value == '') this.value = 'Search!';" maxlength="255" />
+                                <label for="search">Buscar:</label>
+                                <input type="text" id="search" class="text" value="Buscar!" onfocus="if (this.value == 'Buscar!') this.value = '';" onblur="if (this.value == '') this.value = 'Buscar!';" maxlength="255" />
                                 <input type="image" src="images/vimeo.com/btn_search.png" class="button" />
                             </fieldset>
                         </form>
-                    </li>
+                    </li> -->
                 </ul>
             </div><!-- mainmenu -->
 
-            <?php if (isset($this->breadcrumbs)): ?>
+            <!--<?php if (isset($this->breadcrumbs)): ?>
             <?php
                             $this->widget('zii.widgets.CBreadcrumbs', array(
                                 'links' => $this->breadcrumbs,
                             ));
-            ?><!-- breadcrumbs -->
+            ?> breadcrumbs -->
 
             <?php endif ?>
                             <table>
@@ -82,14 +86,18 @@
                                     <div  >
                                         <table>
                                             <tr>
-                                                <td><div style="position: absolute; top:150px; right: 300px; left: 50px; background-color: white"><?php echo $content; ?></div></td>
+                                                <td>
+                                                    <div style="position: absolute; margin-top:40px; top:150px; right: 300px; left: 20px; background-color: white">
+                                                        <?php echo $content; ?>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </table>
                                     </div>
                                 </td>
                                 <td width="20%">
                         <?php
-                                for ($i = 0; $i < 6; $i++) {
+                                for ($i = 0; $i < 5; $i++) {
                                     $numero_aleatorio = rand(1, 500);
                                     $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
                                     if ($publicidades == Null) {
@@ -97,10 +105,10 @@
                                     } else {
                                         foreach ($publicidades as $data) {
                         ?>
-                                            <div style="position: static;">
+                                            <div style="position: static; margin-top: 5px;">
 
                             <?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/' . $data->url, $data->contenido, array("width" => 260, "height" => 260)); ?>
-                                            <hr />
+                                        <hr/>
                                         </div>
                         <?php
                                         }
@@ -118,7 +126,7 @@
                                             <tr>
                                                 <td width="20%">
 
-                                                    <div class="portlet" id="yw2" style="top: 150px; position: fixed">
+                                                    <div class="portlet" id="yw2" style="margin-top: 30px; top: 150px; position: fixed">
                                                         <table border="2">
                                                             <tr><td colspan="2">
 

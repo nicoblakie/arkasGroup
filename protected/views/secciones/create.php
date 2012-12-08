@@ -4,7 +4,7 @@
 
 $this->breadcrumbs = array(
     'Secciones' => array('index'),
-    'Create',
+    'Crear',
 );
 
 $this->menu = array(
