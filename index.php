@@ -2,9 +2,10 @@
 
 // change the following paths if necessary
 ////LINEA PARA TRABAJAR SOBRE EL SERVIDOR
-//$yii = '/home/a3189525/yii/framework/yii.php';
-//LINEA PARA TRABAJAR SOBRE LOCAHOST
-$yii = dirname(__FILE__) . '/../yii/framework/yii.php';
+$yii = '/home/a2259226/yii/framework/yii.php';
+
+////LINEA PARA TRABAJAR SOBRE LOCAHOST
+//$yii = dirname(__FILE__) . '/../yii/framework/yii.php';
 $config = dirname(__FILE__) . '/protected/config/main.php';
 
 // remove the following lines when in production mode

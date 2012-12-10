@@ -118,22 +118,22 @@ return array(
          */
 
 //            PARA EL LOCALHOST DESCOMENTAR Y COMENTAR EL ARRAY DE ABAJO
-        'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=a5972279_arkasg',
-            'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-        ),
-//            
-//            PARA EL SERVIDOR DESCOMENTAR Y COMENTAR EL ARRAY DE ARRIBA
 //        'db' => array(
-//            'connectionString' => 'mysql:host=mysql3.000webhost.com;dbname=a3189525_arkasG',
+//            'connectionString' => 'mysql:host=localhost;dbname=a5972279_arkasg',
 //            'emulatePrepare' => true,
-//            'username' => 'a3189525_admin',
-//            'password' => 'laserjet1',
+//            'username' => 'root',
+//            'password' => '',
 //            'charset' => 'utf8',
 //        ),
+//            
+//            PARA EL SERVIDOR DESCOMENTAR Y COMENTAR EL ARRAY DE ARRIBA
+        'db' => array(
+            'connectionString' => 'mysql:host=mysql2.000webhost.com;dbname=a2259226_arkasg',
+            'emulatePrepare' => true,
+            'username' => 'a2259226_admin',
+            'password' => 'arkasgroup1',
+            'charset' => 'utf8',
+        ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',

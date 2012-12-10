@@ -24,8 +24,8 @@
         <div class="container" id="page">
             <div id="header">
                 <?php
-                echo CHtml::image(Yii::app()->request->baseUrl . '/images/arkasnombre.PNG', "imagen", array("height"=> 100 ));
-                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.PNG', "imagen", array("style"=> "position : absolute; right : 110px", "height"=> 100));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/arkasnombre.gif', "imagen", array("height"=> 100 ));
+                echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.gif', "imagen", array("style"=> "position : absolute; right : 110px", "height"=> 100));
                 ?>       
             </div><!-- header -->
 
