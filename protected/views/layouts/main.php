@@ -34,7 +34,7 @@
                 
                 <ul>
                     <li><?php echo CHtml::link("Inicio", array('/site/index')); ?></li>
-                    <li class='has-sub '><?php echo CHtml::link("Secciones", array('/secciones/index')); ?>
+                    <li class='has-sub '><?php echo CHtml::link("Secciones", array('/')); ?>
                         <ul>
                             <?php
                                 $secciones= Secciones::model()->findAll();
@@ -49,6 +49,27 @@
                     <li>
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
                     </li>
+                       <li>    
+                        <marquee  behaviour=alternate align= "bottom" width="700" scrolldelay="100" scrollamount="6"  > 
+                              <?php 
+                                
+                                for ($i = 0; $i < 1; $i++) {
+                                    $numero_aleatorio1 = rand(1, 500);
+                                    $textoGira = TextoGira::model()->findAll("`idTexto` = $numero_aleatorio1");
+                                    if ($textoGira == Null) {
+                                        $i--;
+                                    } else {
+ 
+                                foreach($textoGira as $dataTe)
+                                    { 
+                                        echo $dataTe->contenido; 
+                                    } 
+                                }
+                            }
+                                ?> 
+                            </marquee>
+                           </li> 
+                        
                     <!--<li>
                         <form method="post" action="">
                             <fieldset>
@@ -179,6 +200,7 @@
                                                                             </div>
                                                                             <li><a href="index.php?r=encuestas">Encuestas </a></li>
                                                                             <li><a href="index.php?r=publicidades">Publicidades </a></li>
+                                                                            <li> <a href="index.php?r=textoGira"> Animacion menu</li>
                                                                             <li><br/></li>
                                                                             <div class="portlet-decoration">
                                                                                 <div class="portlet-title">Opciones Adicionales</div>
