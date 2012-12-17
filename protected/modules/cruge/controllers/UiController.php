@@ -59,7 +59,7 @@ class UiController extends Controller
 				//
 				//	SI rbacSetupEnabled es TRUE entonces:
 				//
-				//		1. 	el filtro "creará" si es necesario la operacion en base
+				//		1. 	el filtro "crearï¿½" si es necesario la operacion en base
 				//			al controller/action
 				//
 				//		2.	el filtro concede paso si la operacion controller/action esta
@@ -214,7 +214,7 @@ class UiController extends Controller
 
 				if(Yii::app()->user->um->save($model,'update')){
 					if($boolIsUserManagement == true){
-						$this->redirect(array('usermanagementadmin'));
+						$this->redirect(array(Yii::app()->request->baseUrl . '/'));
 					}else{
 						$this->redirect(array('usersaved','layout'=>$this->layout));
 					}

@@ -44,7 +44,7 @@
 				}
 			</script>
 			<?php echo CHtml::ajaxbutton(
-				CrugeTranslator::t("Generar una nueva clave")
+				CrugeTranslator::t("Generar una clave aleatoria")
 				,Yii::app()->user->ui->ajaxGenerateNewPasswordUrl
 				,array('success'=>'js:fnSuccess','error'=>'js:fnError')
 			); ?>

@@ -127,15 +127,15 @@
                                                                                 <div class="portlet-title">Secciones Y Post's</div>
                                                                             </div>
                                                                             <li><a href="index.php?r=secciones">Todas las Secciones</a></li>
-                                                                            <li><a href="index.php?r=secciones/view&id=1">  Noticias </a></li>
-                                                                            <li><a href="index.php?r=secciones/view&id=2">  Horoscopos </a></li>
-                                                                            <li><a href="index.php?r=secciones/view&id=3">  Recetas </a></li>
+                                          
                                                                             <li><a href="index.php?r=posts">Todos los Post's</a></li>
+                                                                            <li><br/> </li>
                                                                             <div class="portlet-decoration">
                                                                                 <div class="portlet-title">Publicidades y Encuestas</div>
                                                                             </div>
                                                                             <li><a href="index.php?r=encuestas">Encuestas </a></li>
                                                                             <li><a href="index.php?r=publicidades">Publicidades </a></li>
+                                                                            <li><br/></li>
                                                                             <div class="portlet-decoration">
                                                                                 <div class="portlet-title">Opciones Adicionales</div>
                                                                             </div>

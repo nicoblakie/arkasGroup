@@ -118,6 +118,4 @@ setTimeout(\"$('#dialogComentario').dialog('close') \",30000);
         echo "No hay comentarios para este Post";
     }
     ?>
-    <br>
-    <?php echo CHtml::link("Administrar Comentarios", array('/comentarios/admin')); ?>
 </div>
