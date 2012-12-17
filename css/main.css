@@ -233,6 +233,15 @@ text-align: center;
   padding: 0;
   position: relative;
 }
+#cssmenu marquee {
+   color: #0066FF;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 49px;
+  padding: 0 20px;
+  margin-left: 40px;
+  
+}
 #cssmenu {
   height: 49px;
   border-radius: 0px 0px 10px 10px;
@@ -271,6 +280,8 @@ text-align: center;
   padding: 0 20px;
   text-decoration: none;
 }
+
+
 #cssmenu ul {
   list-style: none;
 }

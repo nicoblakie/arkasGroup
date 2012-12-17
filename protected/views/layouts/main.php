@@ -49,7 +49,28 @@
                     <li>
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
                     </li>
-                    <!--<li>
+                     <li>    
+                        <marquee  behaviour=alternate align= "bottom" width="700" scrolldelay="100" scrollamount="6"  > 
+                              <?php 
+                                
+                                for ($i = 0; $i < 1; $i++) {
+                                    $numero_aleatorio1 = rand(1, 500);
+                                    $textoGira = TextoGira::model()->findAll("`idTexto` = $numero_aleatorio1");
+                                    if ($textoGira == Null) {
+                                        $i--;
+                                    } else {
+ 
+                                foreach($textoGira as $dataTe)
+                                    { 
+                                        echo $dataTe->contenido; 
+                                    } 
+                                }
+                            }
+                                ?> 
+                            </marquee>
+                           </li> 
+                    
+                    <li>
                         <form method="post" action="">
                             <fieldset>
                                 <label for="search">Buscar:</label>
@@ -57,7 +78,7 @@
                                 <input type="image" src="images/vimeo.com/btn_search.png" class="button" />
                             </fieldset>
                         </form>
-                    </li> -->
+                    </li>
                 </ul>
             </div><!-- mainmenu -->
 
