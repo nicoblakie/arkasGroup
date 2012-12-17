@@ -23,7 +23,7 @@
 <?php echo $form->error($model, 'opcion'); ?>
     </div>
 
-    <div class="row">
+    <div class="row" style="visibility:hidden">
         <?php echo $form->labelEx($model, 'votos'); ?>
 <?php echo $form->textField($model, 'votos'); ?>
 <?php echo $form->error($model, 'votos'); ?>

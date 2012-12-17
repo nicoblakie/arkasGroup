@@ -31,7 +31,7 @@
         } ?>
     </div>
 
-    <div class="row">
+    <div class="row" style="visibility:hidden">
         <?php echo $form->labelEx($model, 'contenido'); ?>
         <?php echo $form->textField($model, 'contenido', array('size' => 60, 'maxlength' => 255)); ?>
 <?php echo $form->error($model, 'contenido'); ?>

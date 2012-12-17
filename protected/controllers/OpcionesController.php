@@ -26,11 +26,11 @@ class OpcionesController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
+                'actions' => array('index', 'view', 'update'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update'),
+                'actions' => array('create'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -92,7 +92,24 @@ class OpcionesController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
+        if(!isset($_SESSION)) {
+                        session_start();
+                        $_SESSION['vot'] == 0;
+                    }
+        else if(!isset($_SESSION['vot'])){
+            $_SESSION['vot'] = 0;
+        }
+        else if ($_SESSION['vot'] == 0){
+            $model->votos = $model->votos + 1;
+            $model->save();
+            $_SESSION['vot'] = 1;
+            $this->redirect(array('/site/index'));
+        }
 
+        if ($_SESSION['vot'] == 1)
+        {
+            $this->redirect(array('/site/index'));
+        }
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 

@@ -26,10 +26,12 @@
                 <?php
                 echo CHtml::image(Yii::app()->request->baseUrl . '/images/arkasnombre.gif', "imagen", array("height"=> 100 ));
                 echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.gif', "imagen", array("style"=> "position : absolute; right : 110px", "height"=> 100));
-                ?>       
+                ?>
+
             </div><!-- header -->
 
             <div id="cssmenu">
+                
                 <ul>
                     <li><?php echo CHtml::link("Inicio", array('/site/index')); ?></li>
                     <li class='has-sub '><?php echo CHtml::link("Secciones", array('/secciones/index')); ?>
@@ -71,7 +73,16 @@
                                 <tr>
 
                     <?php
-                            if (Yii::app()->user->isGuest) {
+                    if(!isset($_SESSION)) {
+                        session_start();
+                    }
+                    else if(!isset($_SESSION['vot'])){
+                        $_SESSION['vot'] = 0;
+                    }
+                    else if($_SESSION['vot']==1){
+                        $_SESSION['vot']=1;
+                    }
+                    if (Yii::app()->user->isGuest) {
                     ?>
                                 <td width="80%">
                                     <div  >
@@ -95,7 +106,40 @@
                                         $i--;
                                     } else {
                                         foreach ($publicidades as $data) {
-                        ?>
+                       
+                                    if($i==2){?>
+                                        <div style="position: static; margin-top: 5px; background-color: white">
+                                            <p> 
+                                            <?php
+
+                                            $encuesta = Encuestas::model()->findAll(array('order' => 'idEncuesta DESC', 'limit' => 1));
+                                            foreach ($encuesta as $dataE){
+                                                echo $dataE->pregunta;
+                                                $_SESSION['idEncuesta'] = $dataE->idEncuesta;
+                                                $opciones = Opciones::model()->findAll(array('order' => 'idOpcion DESC', 'condition' => "`encuestas_idEncuesta` = $dataE->idEncuesta"));
+                                                ?><ul><?php
+                                                foreach($opciones as $dataO){
+                                                    ?><li><?php
+                                                    echo $dataO->opcion;
+                                                    if(!isset($_SESSION)) {
+                                                        session_start();
+                                                    }
+                                                    else if (!isset($_SESSION['vot'])){
+                                                        $_SESSION['vot'] = 0;
+                                                    }
+                                                    else if($_SESSION['vot']==1){
+                                                        echo $dataO->votos;
+                                                        $_SESSION['vot']=1;
+                                                    }
+                                                    echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    ?></li><?php
+                                                }
+                                                ?></ul><?php
+                                            }
+                                            ?>
+                                                </p>
+                                        </div>
+                                    <?php }?>
                                             <div style="position: static; margin-top: 5px;">
 
                             <?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/' . $data->url, $data->contenido, array("width" => 260, "height" => 260)); ?>
@@ -169,13 +213,38 @@
                         <div style="position: absolute; top: 182px;">
                             <?php
                                                                         for ($i = 0; $i < 5; $i++) {
+
                                                                             $numero_aleatorio = rand(1, 500);
                                                                             $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
                                                                             if ($publicidades == Null) {
                                                                                 $i--;
                                                                             } else {
                                                                                 foreach ($publicidades as $data) {
-                            ?>
+                          if($i==2){?>
+                                        <div style="position: static; margin-top: 5px; background-color: white">
+                                            <p>
+                                            <?php
+
+                                            $encuesta = Encuestas::model()->findAll(array('order' => 'idEncuesta DESC', 'limit' => 1));
+                                            foreach ($encuesta as $dataE){
+                                                echo $dataE->pregunta;
+                                                $_SESSION['idEncuesta'] = $dataE->idEncuesta;
+                                                $opciones = Opciones::model()->findAll(array('order' => 'idOpcion DESC', 'condition' => "`encuestas_idEncuesta` = $dataE->idEncuesta"));
+                                                ?><ul><?php
+                                                foreach($opciones as $dataO){
+                                                    ?><li><?php
+                                                    echo $dataO->opcion;
+                                                    if ($_SESSION['vot'] == 1){
+                                                    echo $dataO->votos;}
+                                                    echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    ?></li><?php
+                                                }
+                                                ?></ul><?php
+                                            }
+                                            ?>
+                                                </p>
+                                        </div>
+                                    <?php }?>
                                                                                     <div>
                                 <?php echo CHtml::image(Yii::app()->request->baseUrl . '/images/' . $data->url, $data->contenido, array("width" => 100, "height" => 100)); ?>
                                                                                     <br/>
