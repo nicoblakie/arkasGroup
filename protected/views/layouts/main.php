@@ -51,23 +51,22 @@
                     </li>
                      <li>    
                         <marquee  behaviour=alternate align= "bottom" width="700" scrolldelay="100" scrollamount="6"  > 
-                              <?php 
-                                
-                                for ($i = 0; $i < 1; $i++) {
-                                    $numero_aleatorio1 = rand(1, 500);
-                                    $textoGira = TextoGira::model()->findAll("`idTexto` = $numero_aleatorio1");
-                                    if ($textoGira == Null) {
-                                        $i--;
-                                    } else {
- 
-                                foreach($textoGira as $dataTe)
-                                    { 
-                                        echo $dataTe->contenido; 
-                                    } 
+                            <?php
+                            $cont = 0;
+                            for ($i = 0; $i < 5; $i++) {
+                                $numero_aleatorio1 = rand(1, 500);
+                                $textoGira = TextoGira::model()->findAll(array('order' => 'idTexto DESC', 'limit' => 5));
+                                if ($textoGira == Null) {
+                                    $i--;
+                                } else {
+                                    
                                 }
                             }
-                                ?> 
-                            </marquee>
+                            foreach ($textoGira as $dataTe) {
+                                echo $dataTe->contenido . "<--||||----ArkasGroup----||||-->>";
+                            }
+                            ?> 
+                        </marquee>
                            </li> 
                     
                     <li>
