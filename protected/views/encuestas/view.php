@@ -15,17 +15,17 @@ $this->menu = array(
 );
 ?>
 
-<h1>Vista de Encuesta <?php echo $model->idEncuesta; ?></h1>
+<h1>Encuesta <?php echo $model->pregunta; ?></h1>
 
 <?php
-$this->widget('zii.widgets.CDetailView', array(
-    'data' => $model,
-    'attributes' => array(
-        'idEncuesta',
-        'pregunta',
-    ),
-));
-?>
+//$this->widget('zii.widgets.CDetailView', array(
+//    'data' => $model,
+//    'attributes' => array(
+//        'idEncuesta',
+//        'pregunta',
+//    ),
+//));
+//?>
 <?php
 $_SESSION['idEncuesta'] = $model->idEncuesta;
 ?>
@@ -99,5 +99,3 @@ $_SESSION['idEncuesta'] = $model->idEncuesta;
         echo "No hay opciones para esta Encuesta!";
     }
 ?>
-<a href="http://criaderolodejose.com.ar/index.php?r=opciones/admin">Administrar Opciones</a><br>
-<!--<a href="http://criaderolodejose.com.ar/index.php?r=posts/delete&id="> borrar </a>-->
