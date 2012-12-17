@@ -54,7 +54,7 @@
                             <?php
                             $cont = 0;
                             for ($i = 0; $i < 5; $i++) {
-                                $numero_aleatorio1 = rand(1, 500);
+                                
                                 $textoGira = TextoGira::model()->findAll(array('order' => 'idTexto DESC', 'limit' => 5));
                                 if ($textoGira == Null) {
                                     $i--;
@@ -70,7 +70,8 @@
                            </li> 
                     
                     <li>
-                        <form method="post" action="">
+                        
+                        <form method="post" action="" >
                             <fieldset>
                                 <label for="search">Buscar:</label>
                                 <input type="text" id="search" class="text" value="Buscar!" onfocus="if (this.value == 'Buscar!') this.value = '';" onblur="if (this.value == '') this.value = 'Buscar!';" maxlength="255" />
