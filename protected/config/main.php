@@ -122,7 +122,7 @@ return array(
             'connectionString' => 'mysql:host=localhost;dbname=a5972279_arkasg',
             'emulatePrepare' => true,
             'username' => 'root',
-            'password' => 'laserjet1',
+            'password' => '',
             'charset' => 'utf8',
         ),
 //            

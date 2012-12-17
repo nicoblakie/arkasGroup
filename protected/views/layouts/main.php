@@ -34,7 +34,7 @@
                 
                 <ul>
                     <li><?php echo CHtml::link("Inicio", array('/site/index')); ?></li>
-                    <li class='has-sub '><?php echo CHtml::link("Secciones", array('/')); ?>
+                    <li class='has-sub '><?php echo CHtml::link("Secciones", array('/secciones/index')); ?>
                         <ul>
                             <?php
                                 $secciones= Secciones::model()->findAll();
@@ -49,27 +49,6 @@
                     <li>
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
                     </li>
-                       <li>    
-                        <marquee  behaviour=alternate align= "bottom" width="700" scrolldelay="100" scrollamount="6"  > 
-                              <?php 
-                                
-                                for ($i = 0; $i < 1; $i++) {
-                                    $numero_aleatorio1 = rand(1, 500);
-                                    $textoGira = TextoGira::model()->findAll("`idTexto` = $numero_aleatorio1");
-                                    if ($textoGira == Null) {
-                                        $i--;
-                                    } else {
- 
-                                foreach($textoGira as $dataTe)
-                                    { 
-                                        echo $dataTe->contenido; 
-                                    } 
-                                }
-                            }
-                                ?> 
-                            </marquee>
-                           </li> 
-                        
                     <!--<li>
                         <form method="post" action="">
                             <fieldset>
@@ -130,7 +109,7 @@
                        
                                     if($i==2){?>
                                         <div style="position: static; margin-top: 5px; background-color: white">
-                                            <p> 
+                                            <p>
                                             <?php
 
                                             $encuesta = Encuestas::model()->findAll(array('order' => 'idEncuesta DESC', 'limit' => 1));
@@ -147,6 +126,7 @@
                                                     }
                                                     else if (!isset($_SESSION['vot'])){
                                                         $_SESSION['vot'] = 0;
+                                                        echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
                                                     }
                                                     else if($_SESSION['vot']==1){
                                                         echo "   - Votos: ";
@@ -203,7 +183,6 @@
                                                                             </div>
                                                                             <li><a href="index.php?r=encuestas">Encuestas </a></li>
                                                                             <li><a href="index.php?r=publicidades">Publicidades </a></li>
-                                                                            <li> <a href="index.php?r=textoGira"> Animacion menu</li>
                                                                             <li><br/></li>
                                                                             <div class="portlet-decoration">
                                                                                 <div class="portlet-title">Opciones Adicionales</div>
@@ -259,10 +238,21 @@
                                                 foreach($opciones as $dataO){
                                                     ?><li><?php
                                                     echo $dataO->opcion;
-                                                    if ($_SESSION['vot'] == 1){
-                                                        echo "  - Votos: ";
-                                                    echo $dataO->votos;}
-                                                    echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    if(!isset($_SESSION)) {
+                                                        session_start();
+                                                    }
+                                                    else if (!isset($_SESSION['vot'])){
+                                                        $_SESSION['vot'] = 0;
+                                                        echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    }
+                                                    else if($_SESSION['vot']==1){
+                                                        echo "   - Votos: ";
+                                                        echo $dataO->votos;
+                                                        $_SESSION['vot']=1;
+                                                    }
+                                                    else if($_SESSION['vot']!=1){
+                                                        echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    }
                                                     ?></li><?php
                                                 }
                                                 ?></ul><?php
