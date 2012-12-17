@@ -153,7 +153,9 @@
                                                         echo $dataO->votos;
                                                         $_SESSION['vot']=1;
                                                     }
-                                                    echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    else if($_SESSION['vot']!=1){
+                                                        echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
+                                                    }
                                                     ?></li><?php
                                                 }
                                                 ?></ul><?php
