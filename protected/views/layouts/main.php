@@ -149,6 +149,7 @@
                                                         $_SESSION['vot'] = 0;
                                                     }
                                                     else if($_SESSION['vot']==1){
+                                                        echo "   - Votos: ";
                                                         echo $dataO->votos;
                                                         $_SESSION['vot']=1;
                                                     }
@@ -257,6 +258,7 @@
                                                     ?><li><?php
                                                     echo $dataO->opcion;
                                                     if ($_SESSION['vot'] == 1){
+                                                        echo "  - Votos: ";
                                                     echo $dataO->votos;}
                                                     echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
                                                     ?></li><?php
