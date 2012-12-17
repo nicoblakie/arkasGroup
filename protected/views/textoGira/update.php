@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TextoGira', 'url'=>array('index')),
-	array('label'=>'Create TextoGira', 'url'=>array('create')),
-	array('label'=>'View TextoGira', 'url'=>array('view', 'id'=>$model->idTexto)),
-	array('label'=>'Manage TextoGira', 'url'=>array('admin')),
+	array('label'=>'Lista Textos', 'url'=>array('index')),
+	array('label'=>'Crear Nuevo Texto', 'url'=>array('create')),
+	array('label'=>'Ver Texto', 'url'=>array('view', 'id'=>$model->idTexto)),
+	array('label'=>'Administrar Textos', 'url'=>array('admin')),
 );
 ?>
 

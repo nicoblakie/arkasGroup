@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TextoGira', 'url'=>array('index')),
-	array('label'=>'Create TextoGira', 'url'=>array('create')),
+	array('label'=>'Lista Textos', 'url'=>array('index')),
+	array('label'=>'Crear Nuevo Texto', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

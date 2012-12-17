@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TextoGira', 'url'=>array('create')),
-	array('label'=>'Manage TextoGira', 'url'=>array('admin')),
+	array('label'=>'Crear Nuevo Texto', 'url'=>array('create')),
+	array('label'=>'Administrar Textos', 'url'=>array('admin')),
 );
 ?>
 

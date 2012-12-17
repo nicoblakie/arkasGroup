@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TextoGira', 'url'=>array('index')),
-	array('label'=>'Create TextoGira', 'url'=>array('create')),
-	array('label'=>'Update TextoGira', 'url'=>array('update', 'id'=>$model->idTexto)),
-	array('label'=>'Delete TextoGira', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idTexto),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage TextoGira', 'url'=>array('admin')),
+	array('label'=>'Lista Textos', 'url'=>array('index')),
+	array('label'=>'Crear Texto', 'url'=>array('create')),
+	array('label'=>'Actualizar Texto', 'url'=>array('update', 'id'=>$model->idTexto)),
+	array('label'=>'Eliminar Texto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idTexto),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Textos', 'url'=>array('admin')),
 );
 ?>
 

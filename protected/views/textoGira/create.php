@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TextoGira', 'url'=>array('index')),
-	array('label'=>'Manage TextoGira', 'url'=>array('admin')),
+	array('label'=>'Lista Textos', 'url'=>array('index')),
+	array('label'=>'Administrar Textos', 'url'=>array('admin')),
 );
 ?>
 
