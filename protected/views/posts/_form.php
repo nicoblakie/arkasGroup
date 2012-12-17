@@ -74,14 +74,16 @@
 
     <div class="row">
         <?php echo $form->error($model, 'contenido'); ?>
-        <?php $form->widget('application.extensions.TheCKEditor.theCKEditorWidget',array(
+        <?php  $form->widget('application.extensions.TheCKEditor.TheCKEditorWidget',array(
             'model'=>$model,                # Data-Model (form model)
             'attribute'=>'contenido',         # Attribute in the Data-Model
             'height'=>'400px',
             'width'=>'98%',
             'toolbarSet'=>'Basic',          # EXISTING(!) Toolbar (see: ckeditor.js)
             'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
-                                            # Path to ckeditor.php
+
+                                # Path to ckeditor.php
+
             'ckBasePath'=>Yii::app()->baseUrl.'/ckeditor/',
                                             # Relative Path to the Editor (from Web-Root)
             'config' => array('toolbar'=>array(
@@ -91,6 +93,7 @@
              array( 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ),
              array( 'Styles','Format','Font','FontSize'  ),
              array( 'TextColor','BGColor'  ),),'resize_enabled' => 'false', 'skin' => 'kama'))); ?>
+        <?php echo $form->error($model, 'tags'); ?>
     </div>
 
     <div class="row">

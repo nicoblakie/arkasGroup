@@ -1,7 +1,6 @@
 <?php
 /* @var $this EncuestasController */
 /* @var $model Encuestas */
-
 $this->breadcrumbs = array(
     'Encuestas' => array('index'),
     $model->idEncuesta,
@@ -35,38 +34,38 @@ $_SESSION['idEncuesta'] = $model->idEncuesta;
     /* CODIGO PARA CREAR UNA NUEVA OPCION */
     echo CHtml::link('Crear Opcion', "", // Link para abrir le Dialog
             array(
-        'style' => 'cursor: pointer; text-decoration: underline;',
-        'onclick' => "{addOpcion(); $('#dialogOpcion').dialog('open');}"));
+                'style' => 'cursor: pointer; text-decoration: underline;',
+                'onclick' => "{addOpcion(); $('#dialogOpcion').dialog('open');}"));
     ?>
 </div>
 <?php
-$this->beginWidget('zii.widgets.jui.CJuiDialog', array(// El dialog
-    'id' => 'dialogOpcion',
-    'options' => array(
-        'title' => 'Crear Opcion',
-        'autoOpen' => false,
-        'modal' => true,
-        'width' => 550,
-        'height' => 370,
-    ),
-));
+    $this->beginWidget('zii.widgets.jui.CJuiDialog', array(// El dialog
+        'id' => 'dialogOpcion',
+        'options' => array(
+            'title' => 'Crear Opcion',
+            'autoOpen' => false,
+            'modal' => true,
+            'width' => 550,
+            'height' => 370,
+        ),
+    ));
 ?>
-<div class="divForForm"></div>
+    <div class="divForForm"></div>
 
 <?php $this->endWidget(); ?>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    function addOpcion()
-    {
+        function addOpcion()
+        {
 <?php
-echo CHtml::ajax(array(
-    'url' => array('/opciones/create'),
-    'data' => "js:$(this).serialize()",
-    'type' => 'post',
-    'dataType' => 'json',
-    'idEncuesta' => $model->idEncuesta,
-    'success' => "function(data)
+    echo CHtml::ajax(array(
+        'url' => array('/opciones/create'),
+        'data' => "js:$(this).serialize()",
+        'type' => 'post',
+        'dataType' => 'json',
+        'idEncuesta' => $model->idEncuesta,
+        'success' => "function(data)
             {
                 if (data.status == 'failure')
                 {
@@ -76,27 +75,29 @@ echo CHtml::ajax(array(
                 }
                 else
                 {
-                    $('#dialogOpcion div.divForForm').html(data.div);
-                    setTimeout(\"$('#dialogOpcion').dialog('close') \",30000);
-                } 
-            } ",
-))
+                    //$('#dialogOpcion div.divForForm').html(data.div);
+                    setTimeout(\"$('#dialogOpcion').dialog('close') \",0);
+                    location.reload(true);
+                }
+            }",
+    ))
 ?>;
-        return false;
-    }
-</script>
-<?php if ($opcion) { ?>
-    <?php foreach ($opcion as $data) { ?>
-        <br /><br /><?php echo $data->opcion; ?><br />
-        <div>
-          <?php  echo CHtml::button('Borrar', array('submit' => 'index.php?r=opciones/delete&id=' . $data->idOpcion));?>
+            return false;
+        }
+    </script>
+<?php if ($opcion) {
+ ?>
+<?php foreach ($opcion as $data) { ?>
+            <br /><br /><?php echo $data->opcion; ?><br />
+            <div>
+<?php echo CHtml::button('Borrar', array('submit' => 'index.php?r=opciones/delete&id=' . $data->idOpcion)); ?>
         </div>
         <div class="view"><?php echo $data->votos; ?> </div>
-    <?php } ?>
-    <?php
-} else {
-    echo "No hay opciones para esta Encuesta!";
-}
+<?php } ?>
+<?php
+    } else {
+        echo "No hay opciones para esta Encuesta!";
+    }
 ?>
 <a href="http://criaderolodejose.com.ar/index.php?r=opciones/admin">Administrar Opciones</a><br>
 <!--<a href="http://criaderolodejose.com.ar/index.php?r=posts/delete&id="> borrar </a>-->

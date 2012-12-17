@@ -19,13 +19,13 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'usuario'); ?>
-        <?php echo $form->textField($model, 'usuario', array('size' => 45, 'maxlength' => 45)); ?>
+        <?php echo $form->textField($model, 'usuario', array('size' => 45, 'maxlength' => 45, 'value' => "ANONIMO")); ?>
         <?php echo $form->error($model, 'usuario'); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model, 'contenido'); ?>
-        <?php echo $form->textField($model, 'contenido', array('size' => 60, 'maxlength' => 1000)); ?>
+        <?php echo $form->textField($model, 'contenido', array('size' => 60, 'maxlength' => 1000, 'style' => "height: 150px;" )); ?>
         <?php echo $form->error($model, 'contenido'); ?>
     </div>
     <div class="row buttons">
