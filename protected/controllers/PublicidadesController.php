@@ -117,17 +117,15 @@ class PublicidadesController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-//        $dataProvider = new CActiveDataProvider('Publicidades');
-//        $this->render('index', array(
-//            'dataProvider' => $dataProvider,
-//        ));
+        $dataProvider = new CActiveDataProvider('Publicidades');
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+        ));
 
-        $sql = "SELECT COUNT(3) as idPublicidad FROM publicidades";
-        $command = Yii::app()->db->createCommand($sql);
-        $dataProvider = $command->queryAll();
-
-        //$dataProvider = Posts::model()->findAll(array('count' => '3'));
-        $this->render('index', array('dataProvider' => $dataProvider));
+//        $sql = "SELECT * FROM publicidades LIMIT(5)";
+//        $command = Yii::app()->db->createCommand($sql);
+//        $dataProvider = $command->queryAll();
+//        $this->render('index', array('dataProvider' => $dataProvider));
 
     }
 
