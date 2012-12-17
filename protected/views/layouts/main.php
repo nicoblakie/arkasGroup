@@ -88,7 +88,7 @@
                                 </td>
                                 <td width="20%">
                         <?php
-                                for ($i = 0; $i < 5; $i++) {
+                                for ($i = 0; $i < 10; $i++) {
                                     $numero_aleatorio = rand(1, 500);
                                     $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
                                     if ($publicidades == Null) {
@@ -192,6 +192,7 @@
                                                             </table>
                                                             <div class="clear"></div>
                                                             <div id="footer">
+                                                                <br/><br/>
                                                                                         <?php
                         if (Yii::app()->user->isGuest) {
                             echo CHtml::link("Iniciar Sesion", Yii::app()->user->ui->loginUrl);

@@ -51,7 +51,7 @@ class SeccionesController extends Controller {
 //		$this->render('view',array(
 //			'model'=>$this->loadModel($id),
 //		));
-        $Posts = Posts::model()->findAll("`secciones_idSeccion` = $id");
+        $Posts = Posts::model()->findAll(array('condition' => "`secciones_idSeccion` = $id", 'limit'=>7, 'order' => 'fecha DESC'));
         $this->render('view', array('posts' => $Posts, 'model' => $this->loadModel($id)));
     }
 
