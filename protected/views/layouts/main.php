@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+
     </head>
     <body>
         <div class="container" id="page">
@@ -50,8 +51,8 @@
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
                     </li>
                      <li>    
-                        <marquee  behaviour=alternate align= "bottom" width="700" scrolldelay="100" scrollamount="6"  > 
                             <?php
+                            $texto = "";
                             $cont = 0;
                             for ($i = 0; $i < 5; $i++) {
                                 
@@ -63,17 +64,43 @@
                                 }
                             }
                             foreach ($textoGira as $dataTe) {
-                                echo $dataTe->contenido . "<--||||----ArkasGroup----||||-->>";
+                                $texto = $texto . "| <<  " . $dataTe->contenido . "  >> |";
                             }
-                            ?> 
-                        </marquee>
+                            ?>
+                            <input type="text" id="marquesina" disabled="true" style="font-face: verdana, sanas-serif; color: red; font-family: monospace; font-size: 1.7em; border: inset; background-color: #310019; width: 700px; height: 40px; margin-left: 50px; margin-right: 80px;" />
+                            <script type="text/javascript">
+                            <!--
+
+                            texto = "<?php echo $texto ?>"
+                            function mueveTexto(){
+
+
+                                    texto = texto.substring(1, texto.length) + texto.charAt(0)
+
+                                    document.getElementById('marquesina').value = texto
+
+                                    tiempo = setTimeout('mueveTexto()',200)
+
+                            }
+
+                            -->
+
+                            </script>
+                            <script type="text/javascript">
+
+                            <!--
+
+                            mueveTexto();
+
+                            -->
+
+                            </script>
                            </li> 
                     
                     <li>
                         
                         <form method="post" action="" >
                             <fieldset>
-                                <label for="search">Buscar:</label>
                                 <input type="text" id="search" class="text" value="Buscar!" onfocus="if (this.value == 'Buscar!') this.value = '';" onblur="if (this.value == '') this.value = 'Buscar!';" maxlength="255" />
                                 <input type="image" src="images/vimeo.com/btn_search.png" class="button" />
                             </fieldset>
