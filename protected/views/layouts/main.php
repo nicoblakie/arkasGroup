@@ -50,7 +50,7 @@
                     <li>
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
                     </li>
-                     <li>    
+                     <li class='centroitem'>    
                             <?php
                             $texto = "";
                             $cont = 0;
@@ -67,7 +67,7 @@
                                 $texto = $texto . "| <<  " . $dataTe->contenido . "  >> |";
                             }
                             ?>
-                            <input type="text" id="marquesina" disabled="true" style="font-face: verdana, sanas-serif; color: gold; font-family: monospace; font-size: 1.3em; border: inset; background-color: #310019; width: 700px; height: 40px; margin-left: 50px; margin-right: 80px;" />
+                            <input type="text" id="marquesina" disabled="true" style="color: white; border: none; background:none; width: 700px ;height: 40px; margin-top:3px ;margin-left: 50px; margin-right: 80px;" />
                             <script type="text/javascript">
                             <!--
 
@@ -97,26 +97,18 @@
                             </script>
                            </li> 
                     
-                    <li>
+                    <li class='ultitem'>
                         
-                        <form method="post" action="" >
+                        <form method="post" action="" style="margin-top:8px" >
                             <fieldset>
                                 <input type="text" id="search" class="text" value="Buscar!" onfocus="if (this.value == 'Buscar!') this.value = '';" onblur="if (this.value == '') this.value = 'Buscar!';" maxlength="255" />
-                                <input type="image" src="images/vimeo.com/btn_search.png" class="button" />
+                                <input type="image" src="images/search.png" class="button" />
                             </fieldset>
                         </form>
                     </li>
                 </ul>
             </div><!-- mainmenu -->
 
-            <!--<?php if (isset($this->breadcrumbs)): ?>
-            <?php
-                            $this->widget('zii.widgets.CBreadcrumbs', array(
-                                'links' => $this->breadcrumbs,
-                            ));
-            ?> breadcrumbs -->
-
-            <?php endif ?>
                             <table>
                                 <tr>
 
