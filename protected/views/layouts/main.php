@@ -158,33 +158,18 @@
                                                         <div style="border: 1px solid #0066FF;">
                                                             
                                                             <div style="background-color: #0066FF; width: <?php echo $mostrarEncuestas; ?>%;"/>
-                                                            <div style ="float:right;"/>
-                                                               <?php
-                                                                
-                                                                 echo "votos:".$dataO->votos;
-                                                               
-                                                                 
-                                                                ?> 
-                                                                
-                                                             
-                                                            
-                                                        </div>
+                                                           
+                                                               <?php                              
+                                                                 echo $mostrarEncuestas."%";   
+                                                                ?>       
+                                                        
                                                             <?php }else  { ?>
                                                             <div style="border: 1px solid #0066FF;">
-                                                                <div style="background-color: #0066FF; width: 1%;" />
-                                                                <div style ="float:right;"/>
+                                                                <div style="background-color: #0066FF; width: 1%;" />                                                            
                                                                  <?php 
-                                                                    echo "votos:".$dataO->votos;
-                                                                    
-                                                                 ?>
-                                                                
-                                                                       
-                                                           
-                                                             </div>
-                                                        <?php }  ?>
-                                                        
-                                                        
-                                                       
+                                                                    echo $mostrarEncuestas."%";               
+                                                                ?>                                                                                        
+                                                                 <?php }  ?>
                                                         </div>
                                                         <?php
                                                         $_SESSION['vot']=1;
