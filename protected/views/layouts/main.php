@@ -19,7 +19,6 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-
     </head>
     <body>
         <div class="container" id="page">
@@ -31,8 +30,7 @@
 
             </div><!-- header -->
 
-            <div id="cssmenu">
-                
+            <div id="cssmenu">                
                 <ul>
                     <li><?php echo CHtml::link("Inicio", array('/site/index')); ?></li>
                     <li class='has-sub '><?php echo CHtml::link("Secciones", array('/secciones/index')); ?>
@@ -49,10 +47,10 @@
                     </li>
                     <li>
                         <?php echo CHtml::link("Contacto", array('/site/contact')); ?>
-                    </li>
-                     <li class='centroitem'>    
+                    </li>                    
+                     <li>    
+                        <marquee  behaviour=alternate align= "bottom" width="700" scrolldelay="100" scrollamount="6"  > 
                             <?php
-                            $texto = "";
                             $cont = 0;
                             for ($i = 0; $i < 5; $i++) {
                                 
@@ -61,54 +59,33 @@
                                     $i--;
                                 } else {
                                     
-                                }
+                               }
                             }
                             foreach ($textoGira as $dataTe) {
-                                $texto = $texto . "| <<  " . $dataTe->contenido . "  >> |";
+                                echo $dataTe->contenido . "<--||||----ArkasGroup----||||-->>";
                             }
-                            ?>
-                            <input type="text" id="marquesina" disabled="true" style="color: white; border: none; background:none; width: 700px ;height: 40px; margin-top:3px ;margin-left: 50px; margin-right: 80px;" />
-                            <script type="text/javascript">
-                            <!--
-
-                            texto = "<?php echo $texto ?>"
-                            function mueveTexto(){
-
-
-                                    texto = texto.substring(1, texto.length) + texto.charAt(0)
-
-                                    document.getElementById('marquesina').value = texto
-
-                                    tiempo = setTimeout('mueveTexto()',200)
-
-                            }
-
-                            -->
-
-                            </script>
-                            <script type="text/javascript">
-
-                            <!--
-
-                            mueveTexto();
-
-                            -->
-
-                            </script>
-                           </li> 
-                    
-                    <li class='ultitem'>
-                        
-                        <form method="post" action="" style="margin-top:8px" >
+                            ?> 
+                        </marquee>
+                    </li>
+                    <li>
+                        <form method="post" action="index.php?r=site/busqueda" >
                             <fieldset>
+                                <label for="search">Buscar:</label>
                                 <input type="text" id="search" class="text" value="Buscar!" onfocus="if (this.value == 'Buscar!') this.value = '';" onblur="if (this.value == '') this.value = 'Buscar!';" maxlength="255" />
-                                <input type="image" src="images/search.png" class="button" />
-                            </fieldset>
+                                <input type="image" src="images/vimeo.com/btn_search.png" class="button" />                                
+                            </fieldset>                            
                         </form>
                     </li>
                 </ul>
             </div><!-- mainmenu -->
+            <!--<?php if (isset($this->breadcrumbs)): ?>
+            <?php
+                            $this->widget('zii.widgets.CBreadcrumbs', array(
+                                'links' => $this->breadcrumbs,
+                            ));
+            ?> breadcrumbs -->
 
+            <?php endif ?>
                             <table>
                                 <tr>
 
@@ -148,7 +125,7 @@
                                         foreach ($publicidades as $data) {
                        
                                     if($i==2){?>
-                                        <div style="position: static; margin-top: 5px; color: white;">
+                                        <div style="position: static; margin-top: 5px; background-color: white">
                                             <p>
                                             <?php
 
