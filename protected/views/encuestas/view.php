@@ -85,14 +85,29 @@ $_SESSION['idEncuesta'] = $model->idEncuesta;
             return false;
         }
     </script>
+    <br/>
+    <br/>
 <?php if ($opcion) {
  ?>
 <?php foreach ($opcion as $data) { ?>
-            <br /><br /><?php echo $data->opcion; ?><br />
-            <div>
-<?php echo CHtml::button('Borrar', array('submit' => 'index.php?r=opciones/delete&id=' . $data->idOpcion)); ?>
+    
+    <div style=" border: 1px solid #FFD324;">
+        <div style="color: #8a1f11; font-family: serif; font-size: large;">
+            <?php echo $data->opcion; ?>
         </div>
-        <div class="view"><?php echo $data->votos; ?> </div>
+        
+        
+            <div style=" float: right;">
+                <?php echo CHtml::button('Borrar', array('submit' => 'index.php?r=opciones/delete&id=' . $data->idOpcion)); ?>
+            </div>
+            <br/>
+            <div style="font-style: italic; font-size: small;">
+                Cantidad de votos:<?php echo $data->votos; ?> 
+            </div>
+        
+    </div>
+        
+            
 <?php } ?>
 <?php
     } else {
