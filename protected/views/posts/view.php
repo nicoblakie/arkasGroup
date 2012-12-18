@@ -95,23 +95,29 @@ location.reload(true);
 
     <?php foreach ($comentario as $data) {
     ?>
-                    <table>
-                        <tbody>
-                            <tr><td style="border: solid goldenrod; width: 15%">
-                                    USUARIO: <?php echo $data->usuario; ?></td>
-                                <td style="border: solid goldenrod; text-align: right; width: 80%">
-                    <?php
+            
+            <p style="color: #8a1f11; font-family: fantasy; font-size: large;">
+                 <?php echo $data->usuario; ?>:
+            </p>
+            <div style=" border: 1px solid #FFD324; ">
+               
+                    <p style=" float: right;">
+                <?php
                     if (Yii::app()->user->isGuest) {
                         
                     } else {
                         echo CHtml::button('Borrar', array('submit' => 'index.php?r=comentarios/delete&id=' . $data->idComentario));
                     }
-                    //"borrar", array('/comentarios/delete', 'id' => $data->idComentario));
-                    ////array('deleteAjax', 'id' => $data->idComentario));
-                    ?></td></tr>
-            <tr><td style="border: solid goldenrod" colspan="2"><?php echo $data->contenido; ?><br><br><br><?php echo $data->fecha; ?> </td></tr>
-        </tbody>
-    </table>
+                    ?> 
+                        </p>
+                        <?php echo $data->contenido; ?><br><br><br>
+                        <p style="font-style: italic; font-size: small; float: right;">
+                            Publicado el dia:<?php echo $data->fecha; ?>
+                        </p>
+                
+            </div>
+            <br/>
+<!--     
     <?php } ?>
 
     <?php
