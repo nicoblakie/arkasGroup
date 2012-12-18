@@ -93,31 +93,29 @@ location.reload(true);
     <?php if ($comentario) {
     ?>
 
-    <?php foreach ($comentario as $data) {
-    ?>
-            
-            <p style="color: #8a1f11; font-family: fantasy; font-size: large;">
-                 <?php echo $data->usuario; ?>:
-            </p>
-            <div style=" border: 1px solid #FFD324; ">
-               
-                    <p style=" float: right;">
-                <?php
-                    if (Yii::app()->user->isGuest) {
-                        
+   <?php foreach ($comentario as $dataC) { ?>
+       
+        <p style="color: #8a1f11; font-family: fantasy; font-size: large; padding: 10px; margin: 10px 0;">
+            <?php echo $dataC->usuario; ?>
+        </p>
+        <p style=" float: right;">
+            <?php
+                    if (Yii::app()->user->isGuest) {  
                     } else {
-                        echo CHtml::button('Borrar', array('submit' => 'index.php?r=comentarios/delete&id=' . $data->idComentario));
+                        echo CHtml::button('Borrar', array('submit' => 'index.php?r=comentarios/delete&id=' . $dataC->idComentario));
                     }
-                    ?> 
-                        </p>
-                        <?php echo $data->contenido; ?><br><br><br>
-                        <p style="font-style: italic; font-size: small; float: right;">
-                            Publicado el dia:<?php echo $data->fecha; ?>
-                        </p>
+             ?> 
+        </p>
+        <p style=" border: 1px solid #FFD324; ">
+            <?php echo $dataC->contenido; ?><br><br><br>
+        </p>
+        <p style="font-style: italic; font-size: small; float: right;">
+            Publicado el dia:<?php echo $dataC->fecha; ?>
+        </p>
                 
             </div>
             <br/>
-<!--     
+    
     <?php } ?>
 
     <?php
@@ -125,4 +123,3 @@ location.reload(true);
                 echo "No hay comentarios para este Post";
             }
     ?>
-</div>
