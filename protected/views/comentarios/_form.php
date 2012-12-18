@@ -25,7 +25,7 @@
 
     <div class="row">
         <?php echo $form->labelEx($model, 'contenido'); ?>
-        <?php echo $form->textField($model, 'contenido', array('size' => 60, 'maxlength' => 1000, 'style' => "height: 150px;" )); ?>
+        <?php echo $form->textArea($model, 'contenido', array('size' => 60, 'maxlength' => 1000, 'style' => "height: 150px; width: 400px" )); ?>
         <?php echo $form->error($model, 'contenido'); ?>
     </div>
     <div class="row buttons">

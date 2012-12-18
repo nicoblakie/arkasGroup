@@ -67,7 +67,7 @@
                                 $texto = $texto . "| <<  " . $dataTe->contenido . "  >> |";
                             }
                             ?>
-                            <input type="text" id="marquesina" disabled="true" style="font-face: verdana, sanas-serif; color: red; font-family: monospace; font-size: 1.7em; border: inset; background-color: #310019; width: 700px; height: 40px; margin-left: 50px; margin-right: 80px;" />
+                            <input type="text" id="marquesina" disabled="true" style="font-face: verdana, sanas-serif; color: gold; font-family: monospace; font-size: 1.3em; border: inset; background-color: #310019; width: 700px; height: 40px; margin-left: 50px; margin-right: 80px;" />
                             <script type="text/javascript">
                             <!--
 
@@ -156,7 +156,7 @@
                                         foreach ($publicidades as $data) {
                        
                                     if($i==2){?>
-                                        <div style="position: static; margin-top: 5px; background-color: white">
+                                        <div style="position: static; margin-top: 5px; color: white;">
                                             <p>
                                             <?php
 
