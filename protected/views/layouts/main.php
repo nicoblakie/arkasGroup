@@ -26,6 +26,7 @@
                 <?php
                 echo CHtml::image(Yii::app()->request->baseUrl . '/images/arkasnombre.gif', "imagen", array("height"=> 100 ));
                 echo CHtml::image(Yii::app()->request->baseUrl . '/images/logoArkas.gif', "imagen", array("style"=> "position : absolute; right : 110px", "height"=> 100));
+                
                 ?>
 
             </div><!-- header -->
@@ -116,6 +117,7 @@
                                 </td>
                                 <td width="20%">
                         <?php
+                                 $cantidadEncuestas = 0;
                                 for ($i = 0; $i < 11; $i++) {
                                     $numero_aleatorio = rand(1, 500);
                                     $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
@@ -128,7 +130,7 @@
                                         <div style="position: static; margin-top: 5px; background-color: white">
                                             <p>
                                             <?php
-
+                                            
                                             $encuesta = Encuestas::model()->findAll(array('order' => 'idEncuesta DESC', 'limit' => 1));
                                             foreach ($encuesta as $dataE){
                                                 echo $dataE->pregunta;
@@ -146,8 +148,45 @@
                                                         echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
                                                     }
                                                     else if($_SESSION['vot']==1){
-                                                        echo "   - Votos: ";
-                                                        echo $dataO->votos;
+                                                        $cantidadEncuestas +=   $dataO->votos;
+                                                        $mostrarEncuestas = $dataO->votos * 100 / $cantidadEncuestas;
+                                                        if ($dataO->votos >= 1)
+                                                        {
+                                                        ?> 
+                                                        
+                                                            
+                                                        <div style="border: 1px solid #0066FF;">
+                                                            
+                                                            <div style="background-color: #0066FF; width: <?php echo $mostrarEncuestas; ?>%;"/>
+                                                            <div style ="float:right;"/>
+                                                               <?php
+                                                                
+                                                                 echo "votos:".$dataO->votos;
+                                                               
+                                                                 
+                                                                ?> 
+                                                                
+                                                             
+                                                            
+                                                        </div>
+                                                            <?php }else  { ?>
+                                                            <div style="border: 1px solid #0066FF;">
+                                                                <div style="background-color: #0066FF; width: 1%;" />
+                                                                <div style ="float:right;"/>
+                                                                 <?php 
+                                                                    echo "votos:".$dataO->votos;
+                                                                    
+                                                                 ?>
+                                                                
+                                                                       
+                                                           
+                                                             </div>
+                                                        <?php }  ?>
+                                                        
+                                                        
+                                                       
+                                                        </div>
+                                                        <?php
                                                         $_SESSION['vot']=1;
                                                     }
                                                     else if($_SESSION['vot']!=1){
