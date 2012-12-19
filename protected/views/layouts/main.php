@@ -117,7 +117,7 @@
                                 </td>
                                 <td width="20%">
                         <?php
-                                 $cantidadEncuestas = 0;
+                                 
                                 for ($i = 0; $i < 11; $i++) {
                                     $numero_aleatorio = rand(1, 500);
                                     $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
@@ -137,7 +137,16 @@
                                                 $_SESSION['idEncuesta'] = $dataE->idEncuesta;
                                                 $opciones = Opciones::model()->findAll(array('order' => 'idOpcion DESC', 'condition' => "`encuestas_idEncuesta` = $dataE->idEncuesta"));
                                                 ?><ul><?php
+                                                
+                                                
+                                                $cantidadEncuestas = 0;
+                                                $mostrarEncuestas = 0;
+                                                
+                                                
                                                 foreach($opciones as $dataO){
+                                                    $cantidadEncuestas +=   $dataO->votos;
+                                                       
+                                                        
                                                     ?><li><?php
                                                     echo $dataO->opcion;
                                                     if(!isset($_SESSION)) {
@@ -148,30 +157,32 @@
                                                         echo CHtml::button('+', array('submit' => 'index.php?r=opciones/update&id=' . $dataO->idOpcion, 'style'=> "position: absolute; right: 15px;"));
                                                     }
                                                     else if($_SESSION['vot']==1){
-                                                        $cantidadEncuestas +=   $dataO->votos;
-                                                        $mostrarEncuestas = $dataO->votos * 100 / $cantidadEncuestas;
-                                                        if ($dataO->votos >= 1)
-                                                        {
-                                                        ?> 
+                                                    
+//                        Validacion para que el ancho de el porcentaje que muestra la encuesta no me de cero.
+//                        Si es cero. lo pongo en 1 por defecto
+                                                        if ($dataO->votos == 0){?>    
                                                         
-                                                            
-                                                        <div style="border: 1px solid #0066FF;">
-                                                            
-                                                            <div style="background-color: #0066FF; width: <?php echo $mostrarEncuestas; ?>%;"/>
-                                                           
-                                                               <?php                              
-                                                                 echo $mostrarEncuestas."%";   
-                                                                ?>       
-                                                        
-                                                            <?php }else  { ?>
-                                                            <div style="border: 1px solid #0066FF;">
-                                                                <div style="background-color: #0066FF; width: 1%;" />                                                            
-                                                                 <?php 
-                                                                    echo $mostrarEncuestas."%";               
-                                                                ?>                                                                                        
-                                                                 <?php }  ?>
-                                                        </div>
-                                                        <?php
+                                                                <div style="border: 1px solid #0066FF;">
+                                                                    <div style="background-color: #0066FF; width: 1%;" />                                                             
+                                                                        <?php 
+                                                                            echo $mostrarEncuestas."%";               
+                                                                        ?>   
+                                                                </div>                                                            
+                                                            <?php }else  {
+                                                                $mostrarEncuestas = $dataO->votos * 100 / $cantidadEncuestas; 
+                                                                ?>     
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <div style="border: 1px solid #0066FF;"> 
+                                                                            <div style="background-color: #0066FF; width: <?php echo $mostrarEncuestas; ?>%;"/>                                                        
+                                                                            <?php 
+                                                                                
+                                                                                echo $mostrarEncuestas."%";   
+                                                                            ?>          
+                                                                    </div>
+                                                             <?php }                    
                                                         $_SESSION['vot']=1;
                                                     }
                                                     else if($_SESSION['vot']!=1){
@@ -253,14 +264,14 @@
                     <td width="10%" >
                         <div style="position: absolute; top: 182px;">
                             <?php
-                                                                        for ($i = 0; $i < 5; $i++) {
+                            for ($i = 0; $i < 5; $i++) {
 
-                                                                            $numero_aleatorio = rand(1, 500);
-                                                                            $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
-                                                                            if ($publicidades == Null) {
-                                                                                $i--;
-                                                                            } else {
-                                                                                foreach ($publicidades as $data) {
+                                $numero_aleatorio = rand(1, 500);
+                                $publicidades = Publicidades::model()->findAll("`idPublicidad` = $numero_aleatorio");
+                                if ($publicidades == Null) {
+                                    $i--;
+                                } else {
+                                    foreach ($publicidades as $data) {
                           if($i==2){?>
                                         <div style="position: static; margin-top: 5px; background-color: white">
                                             <p>
