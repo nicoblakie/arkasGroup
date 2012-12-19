@@ -36,22 +36,6 @@ class SiteController extends Controller {
         $this->render('index', array('noticias' => $noticias));
     }
 
-    public function actionBusqueda() {
-//            $dataProvider = new CActiveDataProvider('Posts');
-//            $this->render('index', array(
-//            'dataProvider' => $dataProvider,
-//        ));
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-        //$this->render('index');
-
-
-        //CREO LA VARIABLE SESSION ESTATICA ACA PARA QUE FUNCIONE!!!
-        $_SESSION['tag'] = "bienvenida";
-        $noticiasFiltro = Posts::model()->findAll(array('order' => 'fecha DESC', 'condition' => "`tags` ='" .$_SESSION['tag']."'"));
-        $this->render('busqueda', array('noticiasFiltro' => $noticiasFiltro));
-    }
-
     /**
      * This is the action to handle external exceptions.
      */
