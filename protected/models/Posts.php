@@ -47,7 +47,7 @@ class Posts extends CActiveRecord {
             array('titulo, imagen', 'length', 'max' => 150, 'on' => 'insert,update'),
             array('imagen', 'file', 'types' => 'jpg, gif, png', 'allowEmpty' => true, 'on' => 'update'),
             array('titulo', 'length', 'max' => 60),
-            array('contenido', 'length', 'max' => 5000),
+            array('contenido', 'length', 'max' => 50000),
             array('tags', 'length', 'max' => 50),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.

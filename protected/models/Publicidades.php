@@ -34,7 +34,7 @@ class Publicidades extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('url, contenido', 'required'),
+            array('url', 'required'),
             array('posicion', 'numerical', 'integerOnly' => true),
             array('url, contenido', 'length', 'max' => 255, 'on' => 'insert, update'),
             array('url', 'file', 'types' => 'jpg, gif, png', 'allowEmpty' => true, 'on' => 'update'),

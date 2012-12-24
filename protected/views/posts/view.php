@@ -26,6 +26,7 @@ $this->menu = array(
     <div><?php echo $model->contenido ?></div>
     <br>
     <br>
+    <hr>
     <?php
             $_SESSION['idPost'] = $model->idPost;
     ?>
