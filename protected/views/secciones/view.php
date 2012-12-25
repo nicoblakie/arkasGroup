@@ -36,8 +36,14 @@ $this->menu = array(
             <div>
                 <?php 
                 //ASIGNAMOS EL CONTENIDO A UNA VARIABLE $CONTENIDO PARA MOSTRAR 200 PALABRAS
+
                 $contenido = $data->contenido;
-                $NUM_PALABRAS_SHOW = "200"; //Fijo la cantidad que quiera de palabras a mostrar. En este caso del ejemplo coloque 20
+                if($data->secciones_idSeccion == 7){
+                    $NUM_PALABRAS_SHOW = "150"; //Fijo la cantidad que quiera de palabras a mostrar. En este caso del ejemplo coloque 20
+                }
+                else{
+                    $NUM_PALABRAS_SHOW = "200";
+                }
                 $contenido = explode(' ', $contenido);
                 $contenido = array_slice($contenido, 0, $NUM_PALABRAS_SHOW);
                 $contenido = implode(' ', $contenido);
