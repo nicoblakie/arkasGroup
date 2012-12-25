@@ -3,6 +3,21 @@
 
 $this->pageTitle = Yii::app()->name;
 ?>
+                                                        <!--DIV PARA SLIDER-->
+                                                        <div id="slides">
+                                                                <div class="slides_container">
+                                                                <?php
+                                                                $publicidadesSlider = Publicidades::model()->findAll(array('order' => 'idPublicidad DESC', 'limit' => 4));
+                                                                foreach($publicidadesSlider as $publi){
+                                                                ?>
+                                                                    <a><img src=<?php echo Yii::app()->request->baseUrl . '/images/' . $publi->url  ?>></a>
+                                                                <?php
+                                                                  }
+                                                                ?>
+                                                                </div>
+                                                                <a href="#" class="prev"><img src="images/arrow-prev.png" width="24" height="43" alt="Arrow Prev"/></a>
+                                                                <a href="#" class="next"><img src="images/arrow-next.png" width="24" height="43" alt="Arrow Next"/></a>
+                                                         </div>
 <?php if ($noticias) {
     ?>
     <?php foreach ($noticias as $data) {

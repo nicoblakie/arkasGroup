@@ -19,7 +19,20 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+	<script src="js/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			$('#slides').slides({
+				preload: true,
+				preloadImage: 'images/loading.gif',
+				play: 5000,
+				pause: 2500,
+				hoverPause: true
+			});
+		});
+	</script>
     </head>
     <body>
         <div class="container" id="page">
@@ -68,7 +81,7 @@
                                 $texto = $texto . "| <<  " . $dataTe->contenido . "  >> |";
                             }
                             ?>
-                            <input type="text" id="marquesina" disabled="true" style="color: white; border: none; background:none; width: 700px ;height: 40px; margin-top:3px ;margin-left: 50px; margin-right: 80px;" />
+                            <input type="text" id="marquesina" disabled="true" style="color: gold; border: none; background:none; width: 700px ;height: 40px; margin-top:3px ;margin-left: 20px; margin-right: 40px;" />
                             <script type="text/javascript">
                             <!--
 
@@ -131,7 +144,7 @@
                                             <tr>
                                                 <td>
                                                     <div style="position: absolute; top:190px; right: 300px; left: 20px; background-color: white">
-                                                        <?php echo $content; ?>
+                                                         <?php echo $content; ?>
                                                     </div>
                                                 </td>
                                             </tr>
